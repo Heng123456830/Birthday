@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday</title>
+    <link href="index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#12").click(function () {
+                window.location.href = "Message2.html"; // Redirect to message.php when #13 is hovered over
+            });
+        });
+
+    </script>
+    <style>
+        #number3,
+        #number2,
+        #number1 {
+            font-size: 200px;
+            /* 設置字體大小 */
+            font-weight: bold;
+            /* 設置字體加粗 */
+            color: #ff4500;
+            /* 設置顏色 */
+            text-align: center;
+            /* 文字置中 */
+            margin: 20px 0;
+            /* 添加上下邊距 */
+            transition: all 0.5s ease-in-out;
+            /* 讓字體大小和樣式變化更平滑 */
+        }
+
+        div {
+            text-align: center;
+            /* 文字置中 */
+            font-size: 40px;
+            /* 設置字體大小 */
+        }
+
+        
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #DDA0DD;
+        }
+
+
+
+
+        .cake {
+            position: absolute;
+            overflow: hidden;
+            width: 100px;
+            height: 50px;
+            background-color: #f15bb5;
+            border-radius: 10px 10px 0 0;
+            top: -50px;
+            left: 15px;
+            box-shadow: inset 0 -15px #f9c74f, inset 0 15px #432818;
+        }
+
+        .cake:before {
+            content: "";
+            position: absolute;
+            background-color: #432818;
+            width: 10px;
+            height: 20px;
+            top: 5px;
+            border-radius: 20px;
+            box-shadow: 10px 5px #f15bb5, 20px 0px #432818, 30px 2px #f15bb5, 40px 5px #432818, 50px 5px #f15bb5, 60px 0px #432818, 70px 5px #f15bb5, 80px 5px #432818, 90px 5px #f15bb5;
+        }
+
+
+        p {
+            font-family: 'Brush Script MT', cursive;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <p id="number3"></p>
+        <p id="number2"></p>
+        <p id="number1"></p>
+
+
+
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+        <div id="4"></div>
+        <div id="5"></div>
+        <div id="6"></div>
+        <div id="7"></div>
+        <div id="8"></div>
+     
+
+
+
+
+
+    </div>
+    <div id="cake">
+        <div class="candle candle1"></div>
+        <div class="candle candle2"></div>
+        <div class="candle candle3"></div>
+    </div>
+
+
+</body>
+<script>
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select the <p> elements
+        var numberCount3Element = document.getElementById("number3");
+        var numberCount2Element = document.getElementById("number2");
+        var numberCount1Element = document.getElementById("number1");
+        var number1Element = document.getElementById("1");
+        var number2Element = document.getElementById("2");
+        var number3Element = document.getElementById("3");
+        var number4Element = document.getElementById("4");
+        var number5Element = document.getElementById("5");
+        var number6Element = document.getElementById("6");
+        var number7Element = document.getElementById("7");
+        var number8Element = document.getElementById("8");
+       
+
+
+
+        setTimeout(function () {
+            numberCount3Element.textContent = "3"; // Display "happy birthday"
+        }, 1000); // 3 seconds after the greeting changes
+
+        setTimeout(function () {
+            numberCount3Element.textContent = ""; // Clear the birthday message               
+            numberCount2Element.textContent = "2"; // Display "happy birthday"
+        }, 2000); // 3 seconds after the greeting changes
+        setTimeout(function () {
+            numberCount2Element.textContent = ""; // Clear the birthday message               
+            numberCount1Element.textContent = "1"; // Display "happy birthday"
+        }, 3000); // 3 seconds after the greeting changes
+
+
+        // Function to change the greeting after 3 seconds
+        setTimeout(function () {
+            numberCount1Element.textContent = ""; // Clear the birthday message      
+            number1Element.textContent = "親愛的姐姐"; // Display "生日快乐"
+        }, 4000);
+
+        // Function to display "happy birthday" after another 6 seconds
+        setTimeout(function () {
+            number2Element.textContent = "今天是妳的生日,"; // Display "happy birthday"
+        }, 5000); // 3 seconds after the greeting changes
+
+        setTimeout(function () {
+            number3Element.textContent = "我沒有辦法回去幫你慶祝生日,"; // Display "happy birthday"
+        }, 6000); // 3 seconds after the greeting changes
+
+        setTimeout(function () {
+            number4Element.textContent = "我在這裏祝你生日快樂！";
+        }, 7000);
+
+        setTimeout(function () {
+            number5Element.textContent = "工作再忙也要記得照顧好自己,"; // Display "happy birthday"
+        }, 8000); // 3 seconds after the greetin"g changes
+
+
+        setTimeout(function () {
+            number6Element.textContent = "願你每天都充滿動力和微笑,"; // Display "happy birthday"
+        }, 9000); // 3 seconds after the greeting changes
+
+        setTimeout(function () {
+            number7Element.textContent = "賺多多錢，"; // Display "happy birthday"
+        }, 10000); // 3 seconds after the greeting changes
+
+        setTimeout(function () {
+            number8Element.textContent = "生活越來越精彩"; // Display "happy birthday"
+        }, 11000); // 3 seconds after the greeting changes
+        
+
+
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = "birthday.html"; // 替換為你想去的頁面 URL
+            }, 13000); // 2000 毫秒 = 2 秒
+        };
+
+    });
+
+</script>
+
+</html>

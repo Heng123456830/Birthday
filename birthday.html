@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blow Out Candles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #DDA0DD;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        .cake {
+            position: relative;
+            width: 220px;
+            height: 220px;
+        }
+
+        .layer {
+            border-radius: 20px;
+            position: absolute;
+            width: 100%;
+            height: 33%;
+            left: 0;
+        }
+
+        .layer-bottom {
+            background-color: #d2691e;
+            bottom: 0;
+        }
+
+        .layer-middle {
+            background-color: #ffcc99;
+            bottom: 33%;
+        }
+
+        .layer-top {
+            background-color: #ff9999;
+            bottom: 66%;
+        }
+
+        .candles {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: -40px; /* Adjusted to position on top */
+            width: 100%;
+        }
+
+        .candle {
+            position: relative;
+            background-color: white;
+            width: 20px;
+            height: 50px;
+            margin: 0 10px;
+            border-radius: 5px;
+            border: 2px solid #ff6b6b;
+        }
+
+        /* Flame animation */
+        .flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 15px;
+            background-color: orange;
+            border-radius: 50%;
+            animation: flicker 0.5s infinite alternate;
+            transition: opacity 1s ease-out; /* Smooth fade out */
+        }
+
+        /* Smoke rising effect */
+        .smoke {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 20px;
+            background-color: gray;
+            border-radius: 50%;
+            opacity: 0;
+            animation: smoke-rise 2s forwards;
+            display: none; /* Initially hidden */
+        }
+
+        /* Number on the candle */
+        .number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Decoration on the cake */
+        .decorations {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 10%;
+            background: radial-gradient(circle, #ffcc00 20%, transparent 20%) 0 0,
+                        radial-gradient(circle, #ffcc00 20%, transparent 20%) 10px 10px,
+                        radial-gradient(circle, #ffcc00 20%, transparent 20%) 20px 20px;
+            background-size: 30px 30px;
+            opacity: 0.8;
+        }
+
+        /* Flickering flame effect */
+        @keyframes flicker {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        /* Smoke rising animation */
+        @keyframes smoke-rise {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(-30px); /* Smoke moves up */
+                opacity: 0; /* Smoke fades out */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cake">
+        <div class="layer layer-bottom"></div>
+        <div class="layer layer-middle"></div>
+        <div class="layer layer-top"></div>
+        <div class="candles">
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="smoke"></div> <!-- Smoke element -->
+                <div class="number">2</div>
+            </div>
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="smoke"></div> <!-- Smoke element -->
+                <div class="number">3</div>
+            </div>
+        </div>
+        <div class="decorations"></div>
+    </div>
+    <h1>生日快樂！</h1>
+    <div id="9"></div>
+        <script>
+          var number9Element = document.getElementById("9");
+
+        // Function to "blow out" the candles
+        function blowOutCandles() {
+            // Get all the flames
+            const flames = document.querySelectorAll('.flame');
+            const smokes = document.querySelectorAll('.smoke');
+
+            // Fade out the flames
+            flames.forEach((flame) => {
+                flame.style.opacity = '0'; // Start fade-out
+            });
+
+            // Show smoke after flames fade out
+            setTimeout(() => {
+                flames.forEach((flame) => {
+                    flame.style.display = 'none'; // Hide flame
+                });
+
+                // Show and animate smoke
+                smokes.forEach((smoke) => {
+                    smoke.style.display = 'block'; // Show smoke
+                    smoke.style.opacity = '1'; // Start smoke animation
+                });
+            }, 1000); // Delay to simulate the flames blowing out
+        }
+
+        // Trigger the blow-out effect after 3 seconds
+        setTimeout(blowOutCandles, 2000);
+        setTimeout(function () {
+            number9Element.innerHTML = "  <a href='烟花.html'>點擊有彩蛋</a>"; // Display "happy birthday"
+        }, 3000);
+    </script>
+</body>
+</html>
